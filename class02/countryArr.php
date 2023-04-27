@@ -1,4 +1,5 @@
 <?php
+//associative array
 $countryList = [
     "AF" => "Afghanistan",
     "AL" => "Albania",

@@ -1,0 +1,4 @@
+[29-Apr-2023 12:15:53 Asia/Dhaka] PHP Fatal error:  Uncaught Error: Call to undefined function prit_r() in D:\xampp8110\htdocs\R55\PWAD-PHP-R55\class04\ch05-array\array.php:8
+Stack trace:
+#0 {main}
+  thrown in D:\xampp8110\htdocs\R55\PWAD-PHP-R55\class04\ch05-array\array.php on line 8

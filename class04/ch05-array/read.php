@@ -8,8 +8,12 @@
 </head>
 <body>
     <table border="1" width="100%">
+        <?php
+$a = file("csv/addresses.csv");
+$fl = explode(",",$a[0]);
+?>
         <tr>
-            <th>First Name</th>
+            <th><?php echo $fl[0] ?></th>
             <th>Last Name</th>
             <th>Street</th>
             <th>City</th>
@@ -17,8 +21,7 @@
             <th>Zip</th>
             <th>Action</th>
         </tr>
-        <?php
-$a = file("csv/addresses.csv");
+<?php
 // print_r($a);
 foreach ($a as $key => $value) {
     $line_in_array = explode(",",$value);

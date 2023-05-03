@@ -1,0 +1,27 @@
+<?php
+$students = [
+    "John" => array("age" => 21, "major" => "Computer Science", "gpa" => 3.5),
+    "Sarah" => array("age" => 20, "major" => "Business", "gpa" => 3.7),
+    "Michael" => array("age" => 22, "major" => "Psychology", "gpa" => 3.2),
+    "Emily" => array("age" => 21, "major" => "Engineering", "gpa" => 3.8),
+    "David" => array("age" => 23, "major" => "Mathematics", "gpa" => 3.9),
+    "Jessica" => array("age" => 20, "major" => "Communications", "gpa" => 3.5),
+    "James" => array("age" => 22, "major" => "Biology", "gpa" => 3.6),
+    "Olivia" => array("age" => 23, "major" => "Chemistry", "gpa" => 3.4),
+    "Ethan" => array("age" => 21, "major" => "History", "gpa" => 3.2),
+    "Ava" => array("age" => 20, "major" => "Art", "gpa" => 3.8),
+    "Alexander" => array("age" => 22, "major" => "Political Science", "gpa" => 3.7),
+    "Isabella" => array("age" => 21, "major" => "English", "gpa" => 3.9),
+    "Daniel" => array("age" => 23, "major" => "Physics", "gpa" => 3.5),
+    "Mia" => array("age" => 20, "major" => "Sociology", "gpa" => 3.3),
+    "William" => array("age" => 22, "major" => "Economics", "gpa" => 3.8),
+    "Sophia" => array("age" => 23, "major" => "Anthropology", "gpa" => 3.6),
+    "Christopher" => array("age" => 21, "major" => "Music", "gpa" => 3.4),
+    "Madison" => array("age" => 20, "major" => "Philosophy", "gpa" => 3.9),
+    "Ryan" => array("age" => 22, "major" => "Geology", "gpa" => 3.5),
+    "Abigail" => array("age" => 23, "major" => "Education", "gpa" => 3.7),
+    "Nicholas" => array("age" => 21, "major" => "Theater", "gpa" => 3.2),
+    "Emma" => array("age" => 20, "major" => "Marketing", "gpa" => 3.8),
+    "Matthew" => array("age" => 22, "major" => "Nursing", "gpa" => 3.9),
+    "Grace" => array("age" => 23, "major" => "Religious Studies","gpa"=>3.6)
+    ];

@@ -30,9 +30,31 @@ class Fan{
     }
 }
 
+// extends
+class Turbine extends Fan{
+    public function generate_power(){
+
+    }
+}
 
 $ceilingfan = new Fan();
+$ceilingfan->type = "Ceiling Fan";
 $ceilingfan->increaseSpeed();
 $ceilingfan->increaseSpeed();
+$ceilingfan->decreseSpeed();
 echo $ceilingfan->getSpeed();
+
+$tf = new Fan();
+$tf->type = "Table Fan";
+
+$gasturbine = new Turbine();
+$gasturbine->type = "Gas";
+$gasturbine->name = "";
+$gasturbine->switch_on();
+
+$ram = new Turbine();
+$ram->type = "Coal";
+$ram->name = "Rampal Power Plant";
+$ram->switch_on();
+
 

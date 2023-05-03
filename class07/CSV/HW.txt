@@ -1,0 +1,5 @@
+create a class customers which will take one input in constructor.
+customer class has one method named show to show the customer information in table.
+
+read all the lines from customer-10000 file and show the customer information in table
+with the help of Customer class.

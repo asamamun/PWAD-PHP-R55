@@ -1,0 +1,9 @@
+<pre>
+<?php
+var_dump(get_html_translation_table(HTML_SPECIALCHARS));
+?>
+<hr>
+<?php
+var_dump(get_html_translation_table(HTML_ENTITIES));
+?>
+</pre>

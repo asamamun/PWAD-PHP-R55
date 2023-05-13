@@ -1,0 +1,10 @@
+R53 evidence exam: 
+1. Find out whether a number is prime or not.                                                                                           
+
+
+2. Create an array where country name will be key and values will be capital. Insert at least 5 values. Sort the array using array keys and print the result.
+
+
+3. Take user input for three numbers to show the maximum and minimum values. Print the result.
+
+5.0ral                               

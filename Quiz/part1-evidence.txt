@@ -7,4 +7,8 @@ R53 evidence exam:
 
 3. Take user input for three numbers to show the maximum and minimum values. Print the result.
 
-5.0ral                               
+5.0ral     
+
+OOP:
+<h3>Create a class named student where fields are id, name, batch and one method result which will take id as parameter and search the corresponding result from a file and print result. Must use constructor to initialize the data and print a result.
+</h3>                          

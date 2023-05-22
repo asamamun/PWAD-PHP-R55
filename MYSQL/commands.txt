@@ -1,0 +1,4 @@
+$> mysql -u root -p
+
+mysql> SOURCE F:/sakila-db/sakila-schema.sql;
+mysql> SOURCE F:/sakila-db/sakila-data.sql;

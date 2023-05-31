@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>multiple-field primary key</h3>
+    <pre>
+create table if not exists marks(
+stid int(11) not null,
+stclass int(2) not null,
+sub_id int(3) not null,
+exam_id int(3) not null,
+marks float(5,2) not null,
+primary key(stid,stclass,sub_id,exam_id)
+)
+    </pre>
+    <h3>COPY table</h3>
+    <pre>
+        create table markscopy select * from marks;
+    </pre>
+    <h3>alter</h3>
+    <pre>
+        ALTER TABLE marks ADD COLUMN grade varchar(10)
+    </pre>
+</body>
+</html>

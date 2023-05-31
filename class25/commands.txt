@@ -1,0 +1,169 @@
+
+Setting environment for using XAMPP for Windows.
+WDPF@DESKTOP-43SRMLA d:\xampp8110
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 278
+Server version: 10.4.25-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> tee useraccounts.txt
+Logging to file 'useraccounts.txt'
+MariaDB [(none)]> create user 'idb'@'localhost' identified by 'bisew';
+Query OK, 0 rows affected (0.018 sec)
+
+MariaDB [(none)]> exit;
+Bye
+
+WDPF@DESKTOP-43SRMLA d:\xampp8110
+# mysql -u idb@localhost -p
+Enter password: *****
+ERROR 1045 (28000): Access denied for user 'idb@localhost'@'localhost' (using password: YES)
+
+WDPF@DESKTOP-43SRMLA d:\xampp8110
+# mysql -u idb -p
+Enter password: *****
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 292
+Server version: 10.4.25-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
++--------------------+
+1 row in set (0.001 sec)
+
+MariaDB [(none)]> create database testdb1;
+ERROR 1044 (42000): Access denied for user 'idb'@'localhost' to database 'testdb1'
+MariaDB [(none)]> use r55_php;
+ERROR 1044 (42000): Access denied for user 'idb'@'localhost' to database 'r55_php'
+MariaDB [(none)]> exit;
+Bye
+
+WDPF@DESKTOP-43SRMLA d:\xampp8110
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 295
+Server version: 10.4.25-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> grant select,insert on r55_php.* to 'idb'@'localhost';
+ERROR 1030 (HY000): Got error 176 "Read page with wrong checksum" from storage engine Aria
+MariaDB [(none)]> grant select,insert on r55_php.* to 'idb'@'localhost';
+Query OK, 0 rows affected (0.034 sec)
+
+MariaDB [(none)]> exit;
+Bye
+
+WDPF@DESKTOP-43SRMLA d:\xampp8110
+# mysql -u idb -p
+Enter password: *****
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 300
+Server version: 10.4.25-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| r55_php            |
++--------------------+
+2 rows in set (0.001 sec)
+
+MariaDB [(none)]> show tables;
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> use r55_php;
+Database changed
+MariaDB [r55_php]> show tables;
++-------------------+
+| Tables_in_r55_php |
++-------------------+
+| cat               |
+| marks             |
+| markscopy         |
+| students          |
+| subact            |
++-------------------+
+5 rows in set (0.000 sec)
+
+MariaDB [r55_php]> drop table cat;
+ERROR 1142 (42000): DROP command denied to user 'idb'@'localhost' for table 'cat'
+MariaDB [r55_php]> select * from cat;
+Empty set (0.000 sec)
+
+MariaDB [r55_php]> select * from marks;
++------+---------+--------+---------+-------+-------+
+| stid | stclass | sub_id | exam_id | marks | grade |
++------+---------+--------+---------+-------+-------+
+|  101 |       5 |      2 |       3 | 68.50 | NULL  |
++------+---------+--------+---------+-------+-------+
+1 row in set (0.000 sec)
+
+MariaDB [r55_php]> insert into marks values(101,5,2,4,88,null);
+Query OK, 1 row affected (0.039 sec)
+
+MariaDB [r55_php]> select * from marks;
++------+---------+--------+---------+-------+-------+
+| stid | stclass | sub_id | exam_id | marks | grade |
++------+---------+--------+---------+-------+-------+
+|  101 |       5 |      2 |       3 | 68.50 | NULL  |
+|  101 |       5 |      2 |       4 | 88.00 | NULL  |
++------+---------+--------+---------+-------+-------+
+2 rows in set (0.000 sec)
+
+MariaDB [r55_php]> show grants for 'idb';
+ERROR 1044 (42000): Access denied for user 'idb'@'localhost' to database 'mysql'
+MariaDB [r55_php]> exit;
+Bye
+
+WDPF@DESKTOP-43SRMLA d:\xampp8110
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 303
+Server version: 10.4.25-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show grants for 'idb';
+ERROR 1141 (42000): There is no such grant defined for user 'idb' on host '%'
+MariaDB [(none)]> show grants for 'idb'@'localhost';
++------------------------------------------------------------------------------------------------------------+
+| Grants for idb@localhost                                                                                   |
++------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `idb`@`localhost` IDENTIFIED BY PASSWORD '*036DD20E777DCB7AD58EE19F17E44DCA260C16C5' |
+| GRANT SELECT, INSERT ON `r55_php`.* TO `idb`@`localhost`                                                   |
++------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.000 sec)
+
+MariaDB [(none)]> show grants for 'idb'@'localhost'\G;
+*************************** 1. row ***************************
+Grants for idb@localhost: GRANT USAGE ON *.* TO `idb`@`localhost` IDENTIFIED BY PASSWORD '*036DD20E777DCB7AD58EE19F17E44DCA260C16C5'
+*************************** 2. row ***************************
+Grants for idb@localhost: GRANT SELECT, INSERT ON `r55_php`.* TO `idb`@`localhost`
+2 rows in set (0.000 sec)
+
+ERROR: No query specified
+
+MariaDB [(none)]>

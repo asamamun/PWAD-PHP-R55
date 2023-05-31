@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Where Is Access Information Stored? Answer is: mysql database</h1>
+    <h3>creating user</h3>
+    <pre>
+        create user 'jason'@'localhost' identified by 'secret';
+    </pre>
+    <h3>grant user</h3>
+    <pre>
+        grant select,insert on r55_php.* to 'idb'@'localhost';
+        grant ALL PRIVILEGE on r55_php.* to 'idb'@'localhost';
+    </pre>
+    <h3>revoke user</h3>
+    <pre>
+        revoke insert on r55_php.* FROM 'idb'@'localhost';
+    </pre>
+</body>
+</html>

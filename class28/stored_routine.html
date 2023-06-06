@@ -1,0 +1,56 @@
+<ul>
+    <li>
+        SELECT *,concat(`name`,'(',`sku`,')') as nameandsku FROM `products` WHERE 1;
+    </li>
+    <li>
+        SELECT id,name, price, price*0.05 as vat from products where 1;
+        </li>
+        <li>
+            select max(price) from products where 1;
+        </li>
+        <li>
+            select min(price) from products where 1;
+        </li>
+</ul>
+<pre>
+    MySQL is a widely used relational database management system that supports stored functions, which are precompiled SQL code blocks that can be called within queries. Here are some popular MySQL stored functions:
+
+1. CONCAT(): Concatenates two or more strings together.
+   Example: SELECT CONCAT('Hello', 'World');  -- Output: HelloWorld
+
+2. SUBSTRING(): Extracts a portion of a string based on a specified starting position and length.
+   Example: SELECT SUBSTRING('Hello World', 7, 5);  -- Output: World
+
+3. REPLACE(): Replaces all occurrences of a specified string within another string.
+   Example: SELECT REPLACE('Hello World', 'World', 'Universe');  -- Output: Hello Universe
+
+4. UPPER(): Converts a string to uppercase.
+   Example: SELECT UPPER('hello');  -- Output: HELLO
+
+5. LOWER(): Converts a string to lowercase.
+   Example: SELECT LOWER('WORLD');  -- Output: world
+
+6. ROUND(): Rounds a numeric value to a specified number of decimal places.
+   Example: SELECT ROUND(3.14159, 2);  -- Output: 3.14
+
+7. NOW(): Returns the current date and time.
+   Example: SELECT NOW();  -- Output: 2023-06-01 15:30:00
+
+8. DATE_FORMAT(): Formats a date according to a specified format.
+   Example: SELECT DATE_FORMAT(NOW(), '%Y-%m-%d');  -- Output: 2023-06-01
+
+9. IFNULL(): Returns a specified value if a given expression is NULL; otherwise, it returns the expression.
+   Example: SELECT IFNULL(NULL, 'N/A');  -- Output: N/A
+
+10. STR_TO_DATE(): Converts a string to a date value using a specified format.
+    Example: SELECT STR_TO_DATE('2023-06-01', '%Y-%m-%d');  -- Output: 2023-06-01 00:00:00
+
+These are just a few examples of popular MySQL stored functions. MySQL provides a wide range of built-in functions that cater to various data manipulation and calculation needs.
+</pre>
+<h1>stored procedure</h1>
+<pre>
+CREATE PROCEDURE get_inventory(IN product CHAR(8), OUT count INT) 
+ SELECT 45 INTO count;`
+ 
+ call get_inventory("abc",count);
+</pre>

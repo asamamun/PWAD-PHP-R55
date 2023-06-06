@@ -1,0 +1,5 @@
+create trigger ad_products_table after delete on products
+for each row
+begin
+delete from comments where pid = old.id;
+end;//

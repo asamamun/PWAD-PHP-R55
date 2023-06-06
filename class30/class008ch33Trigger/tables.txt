@@ -1,0 +1,27 @@
+CREATE TABLE `technicians` (
+  `id` int(5) NOT NULL primary key auto_increment,
+  `name` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `available` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `tickets` (
+  `id` int(5) NOT NULL primary key auto_increment,
+  `username` varchar(60) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `description` varchar(200) NOT NULL,
+  `tech_id` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE or REPLACE TRIGGER au_reassign_ticket
+AFTER UPDATE ON technicians
+FOR EACH ROW
+BEGIN
+IF NEW.available = 0 THEN
+UPDATE tickets SET tech_id=0 WHERE tech_id=NEW.id;
+elseif NEW.available = 1 THEN
+UPDATE tickets SET tech_id=NEW.id WHERE tech_id=0;
+END IF;
+END;//

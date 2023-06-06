@@ -1,0 +1,28 @@
+SELECT column_name(s)
+FROM table1
+INNER JOIN table2
+ON table1.column_name = table2.column_name;
+
+select actor.actor_id,concat(actor.first_name," ", actor.last_name) as actor_name, film.film_id,film.title
+from film_actor
+inner join actor
+inner join film
+on film_actor.actor_id = actor.actor_id and film_actor.film_id=film.film_id
+
+select concat(actor.first_name," ", actor.last_name) as actor_name, film.title
+from film_actor
+inner join actor
+inner join film
+on film_actor.actor_id = actor.actor_id and film_actor.film_id=film.film_id
+
+
+to show views sql code:
+show create view view_name;
+
+create view my_actor_films as 
+select `a`.`actor_id` AS `actor_id`,`a`.`first_name` AS `first_name`,`a`.`last_name` AS `last_name`,group_concat(distinct concat(`c`.`name`,': ',(select group_concat(`f`.`title` order by `f`.`title` ASC separator ', ') from ((`film` `f` join `film_category` `fc` on(`f`.`film_id` = `fc`.`film_id`)) join `film_actor` `fa` on(`f`.`film_id` = `fa`.`film_id`)) where `fc`.`category_id` = `c`.`category_id` and `fa`.`actor_id` = `a`.`actor_id`)) order by `c`.`name` ASC separator '; ') AS `film_info` from (((`actor` `a` left join `film_actor` `fa` on(`a`.`actor_id` = `fa`.`actor_id`)) left join `film_category` `fc` on(`fa`.`film_id` = `fc`.`film_id`)) left join `category` `c` on(`fc`.`category_id` = `c`.`category_id`)) group by `a`.`actor_id`,`a`.`first_name`,`a`.`last_name`
+
+
+create view gt500 as select * from products with local check option where price>=500;
+create view gt500 as select * from products with local check option where price>=500;
+create view gt500 as select * from products where price>=500 with check option;

@@ -1,0 +1,11 @@
+ALTER TABLE comments
+ADD FOREIGN KEY (pid) REFERENCES products(id) on delete restrict;
+
+ALTER TABLE comments
+ADD FOREIGN KEY (pid) REFERENCES products(id) on delete cascade;
+
+ALTER TABLE subcategories
+ADD FOREIGN KEY (category_id) REFERENCES categories(id)
+
+ALTER TABLE comments
+ADD FOREIGN KEY (user_id) REFERENCES users(id)

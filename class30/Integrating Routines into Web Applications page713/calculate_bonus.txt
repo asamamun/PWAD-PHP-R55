@@ -1,0 +1,40 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` FUNCTION `calculate_bonus`(emp_id INT(5)) RETURNS decimal(10,2)
+    COMMENT 'Calculate employee SALES bonus'
+BEGIN
+    DECLARE total DECIMAL(10,2);
+    DECLARE bonus DECIMAL(10,2);
+    SELECT SUM(revenue) INTO total FROM sales WHERE EMPID = emp_id;
+    if total>=100000 then
+    SET bonus = total * .15;
+    elseif total>=50000 then
+    SET bonus = total * .1;
+    elseif total>=20000 then
+    SET bonus = total * .08;
+    else
+    SET bonus = total * .05;
+    end if;
+    RETURN bonus;
+    END$$
+DELIMITER ;
+
+
+
+
+
+
+
+
+
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` FUNCTION `calculate_bonus`(eid int) RETURNS decimal(10,2)
+begin
+declare total decimal(10,2);
+DECLARE bonus DECIMAL(10,2);
+select sum(revenue) into total from sales where empid=eid;
+set bonus = total * 0.05;
+return bonus;
+END$$
+DELIMITER ;

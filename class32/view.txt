@@ -1,0 +1,11 @@
+create or replace view gt500 as select * from products where price > 500
+
+question: create a view named product_tax to show id, sku, name, price, vat from products where vat is 5% of the price
+answer: create view product_tax as 
+select id,sku,name, price, price*0.05 as vat from products where 1;
+
+sakila
+
+create or replace view customerwise_total_payment as select customer_id, sum(amount) as totalpaid from payment where 1 group by customer_id
+
+select * from customerwise_total_payment

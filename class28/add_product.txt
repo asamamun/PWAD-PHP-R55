@@ -1,0 +1,76 @@
+create procedure add_product(
+    IN s varchar(8),
+    IN n varchar(100),
+    IN d text,
+    IN p float(9,2),
+    IN i varchar(60)
+    )
+    begin
+        insert into products values(null,s,n,d,p,i,current_timestamp());
+    end
+    //
+
+    call add_product("test1","name test1","test description",567.99,"imagetest.jpg");
+
+
+    
+    call addcat("Electronics");
+    call addcat("Garments");
+    call addcat("Automobiles");
+    call addcat("Furniture");
+// 000000.0000
+create function calculate_bonus(eid int) returns decimal(10,2)
+begin
+declare total decimal(10,2);
+DECLARE bonus DECIMAL(10,2);
+select sum(revenue) into total from sales where empid=eid;
+set bonus = total * 0.05;
+return bonus;
+END
+//
+
+
+select *,sum(revenue) as totalsale,calculate_bonus(empid) as bonus from sales where 1 group by empid;
+select id,empid,sum(revenue) as totalsale,calculate_bonus(empid) as bonus from sales where 1 group by empid;
+
+
+
+
+
+
+
+
+
+
+    
+Setting environment for using XAMPP for Windows.
+WDPF@DESKTOP-43SRMLA d:\xampp8110
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 390
+Server version: 10.4.25-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use r55_php;
+Database changed
+MariaDB [r55_php]> call get_invntory("aa",@count);
+ERROR 1305 (42000): PROCEDURE r55_php.get_invntory does not exist
+MariaDB [r55_php]> call get_inventory("aa",@count);
+Query OK, 1 row affected (0.000 sec)
+
+MariaDB [r55_php]> select @count;
++--------+
+| @count |
++--------+
+|     45 |
++--------+
+1 row in set (0.000 sec)
+
+MariaDB [r55_php]> call add_product("test1","name test1","test description",567.99,"imagetest.jpg");
+Query OK, 1 row affected, 1 warning (0.105 sec)
+
+MariaDB [r55_php]>
